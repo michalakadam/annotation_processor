@@ -10,6 +10,13 @@
     <name>Tester</name>
     <description>program odpalający metody oznaczone adnotacją @Run</description>
     <url>git.epam.com/Adam_Michalak</url>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>annotation</module>
+        <module>tester</module>
+        <module>application</module>
+    </modules>
   
     <properties>
              <!-- https://maven.apache.org/general.html#encoding-warning -->
@@ -84,7 +91,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-<!-- if diff enconding than UTF8 is needed: https://maven.apache.org/plugins/maven-resources-plugin/examples/encoding.html -->
                 <version>${version.plugin.maven.resources}</version>
             </plugin>
         </plugins>
