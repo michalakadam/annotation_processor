@@ -1,4 +1,4 @@
-# TESTER
+# Procesor adnotacji
 
 ##### program odpalający metody oznaczone adnotacją @Run
 
@@ -13,3 +13,8 @@ Zadania:
 4. Mavenowy moduł: adnotacje (rzeczone @Run), tester (sedno zadania) i program (jako zależność używa obu pozostałych modułów, to "kod testowany")
 
 5. Wywołanie całości via mvn:exec (czy główną klasę testera) powinno odpalić każdą z metod, nawet jeśli jedna ma błąd kompilacji czy nieoczekiwany wynik
+
+##### Uruchomienie procesora adnotacji
+
+1. Odpal projekt w IDE
+2. Uruchom klasę Main znajdującą się w module tester
