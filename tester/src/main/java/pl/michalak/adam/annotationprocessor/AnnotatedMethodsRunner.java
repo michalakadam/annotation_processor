@@ -6,36 +6,47 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 
+/**
+ * This public API handles invoking methods from injected methodsSupplier class
+ * with specified annotation defined in annotationSupplier class.
+ *
+ */
 public class AnnotatedMethodsRunner {
 
-    private Class methodsProvider;
-    private Class annotationProvider;
+    private Class methodsSupplier;
+    private Class annotationSupplier;
 
-    public AnnotatedMethodsRunner(Class methodsProvider, Class annotationProvider) {
-        this.methodsProvider = methodsProvider;
-        this.annotationProvider = annotationProvider;
+    /**
+     * @param methodsSupplier is a source methods to invoke
+     * @param annotationSupplier defines a type of annotation
+     */
+    public AnnotatedMethodsRunner(Class methodsSupplier, Class annotationSupplier) {
+        this.methodsSupplier = methodsSupplier;
+        this.annotationSupplier = annotationSupplier;
     }
 
+    /**
+     * Responsible for invoking methods from methodsSupplier class
+     * that are first filtered according to the annotation defined
+     * in annotationSupplier class.
+     */
     public void runMethodsProviderClassMethodsWithAnnotation() {
         Method[] methodsToCheck = getMethodsToCheck();
         Set<Method> methodsWithAnnotation = getMethodsWithAnnotation(methodsToCheck);
         methodsWithAnnotation.forEach(method -> {
             try {
                 method.invoke(new MethodsProvider());
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                System.err.format("Caused by invoking method %s located in class %s", method.getName(), method.getClass().getName());
             }
         });
-
     }
 
     private Method[] getMethodsToCheck() {
-        return new ClassMethodsExtractor().extractMethodsFromClass(methodsProvider);
+        return new ClassMethodsExtractor().extractMethodsFromClass(methodsSupplier);
     }
 
     private Set<Method> getMethodsWithAnnotation(Method[] methodsToCheck) {
-        return  new AnnotationChecker().collectOnlyMethodsWithAnnotation(methodsToCheck, annotationProvider);
+        return  new AnnotationChecker().collectOnlyMethodsWithAnnotation(methodsToCheck, annotationSupplier);
     }
 }
