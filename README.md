@@ -14,7 +14,17 @@ Zadania:
 
 5. Wywołanie całości via mvn:exec (czy główną klasę testera) powinno odpalić każdą z metod, nawet jeśli jedna ma błąd kompilacji czy nieoczekiwany wynik
 
-##### Uruchomienie procesora adnotacji
+### Uruchomienie procesora adnotacji
 
-1. Odpal projekt w IDE
-2. Uruchom klasę Main znajdującą się w module tester
+##### Wymagania
+
+Maven minimum 3.5.3
+Java minimum 8
+
+##### Instrukcja
+
+1. Odpal terminal i przejdź do folderu, w którym znajduje się projekt
+
+2. Wpisz komendę mvn clean install
+
+3. Odpal program wpisując java -jar ./tester/target/tester.jar

@@ -32,8 +32,8 @@
         <version.maven>3.5.3</version.maven>
       <!-- plugin versions should go here, so below they can be omitted -->
         <version.plugin.maven.enforcer>3.0.0-M2</version.plugin.maven.enforcer>
-        <version.plugin.maven.jar>3.1.0</version.plugin.maven.jar>
         <version.plugin.maven.compiler>3.8.0</version.plugin.maven.compiler>
+        <version.plugin.maven.shade-plugin>3.2.0</version.plugin.maven.shade-plugin>
         <!--project version passed to modules. See: https://maven.apache.org/maven-ci-friendly.html-->        
         <revision>0.1-SNAPSHOT</revision>
     </properties>
@@ -61,6 +61,7 @@
                     </execution>
                 </executions>
             </plugin>
+           <!--mvn exec:exec not working - the parameters 'executable for goal exec are missing or invalid-->
             <plugin>  
                 <groupId>org.codehaus.mojo</groupId>  
                 <artifactId>exec-maven-plugin</artifactId>  
