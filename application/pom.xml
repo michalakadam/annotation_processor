@@ -6,9 +6,22 @@
 
     <parent>
         <groupId>pl.michalak.adam</groupId>
-        <artifactId>Tester.java.academy</artifactId>
+        <artifactId>AnnotationProcessor.java.academy</artifactId>
         <version>${revision}</version>
     </parent>
 
     <artifactId>application</artifactId>
+    
+    <dependencies>
+        <dependency>
+            <groupId>pl.michalak.adam</groupId>
+            <artifactId>annotation</artifactId>
+            <version>${revision}</version>
+        </dependency>
+       <dependency>
+            <groupId>pl.michalak.adam</groupId>
+            <artifactId>tester</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 </project>

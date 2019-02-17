@@ -4,7 +4,7 @@ package pl.michalak.adam;
  *
  * @author Adam Michalak
  */
-class Tester {
+class AnnotationProcessor {
 public static void main(String[] args) {
 
     }

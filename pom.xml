@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.michalak.adam</groupId>
-    <artifactId>Tester.java.academy</artifactId>
+    <artifactId>AnnotationProcessor.java.academy</artifactId>
     <version>${revision}</version>
-    <name>Tester</name>
+    <name>AnnotationProcessor</name>
     <description>program odpalający metody oznaczone adnotacją @Run</description>
     <url>git.epam.com/Adam_Michalak</url>
     <packaging>pom</packaging>
@@ -75,7 +75,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>pl.michalak.adam.Tester</mainClass>
+                            <mainClass>pl.michalak.adam.AnnotationProcessor</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>

@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>pl.michalak.adam</groupId>
-        <artifactId>Tester.java.academy</artifactId>
+        <artifactId>AnnotationProcessor.java.academy</artifactId>
         <version>${revision}</version>
     </parent>
 
