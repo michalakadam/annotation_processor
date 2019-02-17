@@ -12,7 +12,6 @@ import pl.michalak.adam.application.MethodsProvider;
  */
 class Main {
 public static void main(String[] args) {
-        AnnotatedMethodsRunner annotatedMethodsRunner = AnnotatedMethodsRunner.create(MethodsProvider.class, Run.class);
-        annotatedMethodsRunner.runMethodsProviderClassMethodsWithAnnotation();
+        new AnnotatedMethodsRunner(MethodsProvider.class, Run.class).runMethodsProviderClassMethodsWithAnnotation();
     }
 }

@@ -11,7 +11,7 @@ public class AnnotatedMethodsRunner {
     private Class methodsProvider;
     private Class annotationProvider;
 
-    private AnnotatedMethodsRunner(Class methodsProvider, Class annotationProvider) {
+    public AnnotatedMethodsRunner(Class methodsProvider, Class annotationProvider) {
         this.methodsProvider = methodsProvider;
         this.annotationProvider = annotationProvider;
     }
@@ -37,9 +37,5 @@ public class AnnotatedMethodsRunner {
 
     private Set<Method> getMethodsWithAnnotation(Method[] methodsToCheck) {
         return  new AnnotationChecker().collectOnlyMethodsWithAnnotation(methodsToCheck, annotationProvider);
-    }
-
-    public static AnnotatedMethodsRunner create(Class methodsProvider, Class annotationProvider) {
-        return new AnnotatedMethodsRunner(methodsProvider, annotationProvider);
     }
 }
