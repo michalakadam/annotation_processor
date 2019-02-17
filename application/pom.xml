@@ -18,10 +18,5 @@
             <artifactId>annotation</artifactId>
             <version>${revision}</version>
         </dependency>
-       <dependency>
-            <groupId>pl.michalak.adam</groupId>
-            <artifactId>tester</artifactId>
-            <version>${revision}</version>
-        </dependency>
     </dependencies>
 </project>

@@ -75,7 +75,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>pl.michalak.adam.AnnotationProcessor</mainClass>
+                            <mainClass>pl.michalak.adam.Main</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>
