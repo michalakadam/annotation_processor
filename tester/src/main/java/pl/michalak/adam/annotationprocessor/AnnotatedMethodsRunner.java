@@ -43,7 +43,7 @@ public class AnnotatedMethodsRunner {
     }
 
     private Method[] getMethodsToCheck() {
-        return new ClassMethodsExtractor().extractMethodsFromClass(methodsSupplier);
+        return methodsSupplier.getMethods();
     }
 
     private Set<Method> getMethodsWithAnnotation(Method[] methodsToCheck) {
