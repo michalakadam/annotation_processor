@@ -34,14 +34,9 @@
         <version.plugin.maven.enforcer>3.0.0-M2</version.plugin.maven.enforcer>
         <version.plugin.maven.jar>3.1.0</version.plugin.maven.jar>
         <version.plugin.maven.compiler>3.8.0</version.plugin.maven.compiler>
-        <version.plugin.maven.resources>3.1.0</version.plugin.maven.resources>
         <!--project version passed to modules. See: https://maven.apache.org/maven-ci-friendly.html-->        
         <revision>0.1-SNAPSHOT</revision>
     </properties>
-
-    <dependencies>
-        <!-- #Your dependencies -->
-    </dependencies>
 
     <build>
         <plugins>
@@ -66,34 +61,31 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${version.plugin.maven.jar}</version>
-                <configuration>
-                    <archive>
-                        <index>true</index>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>pl.michalak.adam.Main</mainClass>
-                        </manifest>
-                        <manifestEntries>
-                            <mode>development</mode>
-                            <url>${project.url}</url>
-                            <key>value</key>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>                 
+            <plugin>  
+                <groupId>org.codehaus.mojo</groupId>  
+                <artifactId>exec-maven-plugin</artifactId>  
+                <version>1.1.1</version>  
+                <executions>  
+                    <execution>  
+                        <goals>  
+                            <goal>exec</goal>  
+                        </goals>  
+                        <configuration>
+                            <executable>java</executable>
+                            <arguments>
+                                <argument>--module-path</argument>
+                                <modulepath/>
+                                <argument>--module</argument>
+                                <argument>tester/pl.michalak.adam.Main</argument>
+                            </arguments>  
+                        </configuration>  
+                    </execution>  
+                </executions>  
+            </plugin>  
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${version.plugin.maven.compiler}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${version.plugin.maven.resources}</version>
             </plugin>
         </plugins>
     </build>
