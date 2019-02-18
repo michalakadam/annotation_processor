@@ -15,6 +15,6 @@ Java minimum 8
 
 2. Execute 'mvn clean install' command
 
-3. Run app by typing 'java -jar ./tester/target/tester.jar'
+3. Run app by typing 'java -jar ./application/target/tester.jar'
 
 
