@@ -10,8 +10,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>application</artifactId>
-    
+    <artifactId>processor</artifactId>
     <dependencies>
         <dependency>
             <groupId>pl.michalak.adam</groupId>
@@ -19,11 +18,21 @@
             <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>pl.michalak.adam</groupId>
-            <artifactId>processor</artifactId>
-            <version>${revision}</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <compilerVersion>${project.java.version}</compilerVersion>
+                    <source>${project.java.version}</source>
+                    <target>${project.java.version}</target>
+                    <compilerArgument>-proc:none</compilerArgument>
+                </configuration>
+            </plugin>    
+        </plugins>
+    </build>
 </project>

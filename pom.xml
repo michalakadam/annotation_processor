@@ -14,7 +14,7 @@
 
     <modules>
         <module>annotation</module>
-        <module>tester</module>
+        <module>processor</module>
         <module>application</module>
     </modules>
   
@@ -60,33 +60,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-           <!--mvn exec:exec not working - the parameters 'executable for goal exec are missing or invalid-->
-            <plugin>  
-                <groupId>org.codehaus.mojo</groupId>  
-                <artifactId>exec-maven-plugin</artifactId>  
-                <version>1.1.1</version>  
-                <executions>  
-                    <execution>  
-                        <goals>  
-                            <goal>exec</goal>  
-                        </goals>  
-                        <configuration>
-                            <executable>java</executable>
-                            <arguments>
-                                <argument>--module-path</argument>
-                                <modulepath/>
-                                <argument>--module</argument>
-                                <argument>tester/pl.michalak.adam.Main</argument>
-                            </arguments>  
-                        </configuration>  
-                    </execution>  
-                </executions>  
-            </plugin>  
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${version.plugin.maven.compiler}</version>
             </plugin>
         </plugins>
     </build>
