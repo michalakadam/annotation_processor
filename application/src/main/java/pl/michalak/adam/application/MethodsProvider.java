@@ -13,9 +13,8 @@ public class MethodsProvider {
         System.err.println("This method is not marked with @Run annotation.");
     }
 
-    //Apparently package-private methods are not processed by annotation processor.
     @Run
-    void printPackagePrivateMessage(){
-        System.out.println("Package-private methods work with @Run annotation as well.");
+    private void printAnotherMessage(){
+        System.out.println("I am in a private method marked with @Run annotation!");
     }
 }

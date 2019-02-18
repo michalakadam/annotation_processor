@@ -1,6 +1,4 @@
-package pl.michalak.adam.annotationprocessor;
-
-import pl.michalak.adam.application.MethodsProvider;
+package pl.michalak.adam.annotationtester;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,14 +11,14 @@ import java.util.Set;
  */
 public class AnnotatedMethodsRunner {
 
-    private Class methodsSupplier;
+    private Object methodsSupplier;
     private Class annotationSupplier;
 
     /**
-     * @param methodsSupplier is a source methods to invoke
+     * @param methodsSupplier is a source of methods to invoke
      * @param annotationSupplier defines a type of annotation
      */
-    public AnnotatedMethodsRunner(Class methodsSupplier, Class annotationSupplier) {
+    public AnnotatedMethodsRunner(Object methodsSupplier, Class annotationSupplier) {
         this.methodsSupplier = methodsSupplier;
         this.annotationSupplier = annotationSupplier;
     }
@@ -35,7 +33,7 @@ public class AnnotatedMethodsRunner {
         Set<Method> methodsWithAnnotation = getMethodsWithAnnotation(methodsToCheck);
         methodsWithAnnotation.forEach(method -> {
             try {
-                method.invoke(new MethodsProvider());
+                method.invoke(methodsSupplier);
             } catch (IllegalAccessException | InvocationTargetException e) {
                 System.err.format("Caused by invoking method %s located in class %s", method.getName(), method.getClass().getName());
             }
@@ -43,7 +41,7 @@ public class AnnotatedMethodsRunner {
     }
 
     private Method[] getMethodsToCheck() {
-        return methodsSupplier.getMethods();
+        return methodsSupplier.getClass().getDeclaredMethods();
     }
 
     private Set<Method> getMethodsWithAnnotation(Method[] methodsToCheck) {

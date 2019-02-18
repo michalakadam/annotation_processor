@@ -11,12 +11,44 @@
     </parent>
 
     <artifactId>application</artifactId>
-    
+
     <dependencies>
         <dependency>
             <groupId>pl.michalak.adam</groupId>
             <artifactId>annotation</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>pl.michalak.adam</groupId>
+            <artifactId>tester</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${version.plugin.maven.shade-plugin}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>project-classifier</shadedClassifierName>
+                            <outputFile>target\${project.artifactId}.jar</outputFile>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>pl.michalak.adam.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
