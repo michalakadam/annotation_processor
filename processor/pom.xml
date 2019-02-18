@@ -30,6 +30,7 @@
                     <source>${project.java.version}</source>
                     <target>${project.java.version}</target>
                     <compilerArgument>-proc:none</compilerArgument>
+                    <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>    
         </plugins>
