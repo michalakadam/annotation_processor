@@ -1,30 +1,20 @@
-# Procesor adnotacji
+# Simple custom annotation processor
 
-##### program odpalający metody oznaczone adnotacją @Run
+Program written to master use of reflection API and implementing custom annotation processors using javax.annotation.processing package. Code on branch master invokes methods marked with custom @Run annotation during Runtime using Java reflection API. Code on branch customprocesor implements AnnotationProcessor from javax.annotation.processing package and analyzes code during compile phase. Switch to branch customprocessor to see instructions on how to run it.
 
-Zadania:
+### Instructions on running the program using reflection
 
-1. Stworzenie własnej adnotacji Run
-
-2. Napisanie programu z dwiema metodami oznaczonymi tą adnotacją
-
-3. Napisanie programu, który odpala tylko wybrane (oznaczone) metody modułu program
-
-4. Mavenowy moduł: adnotacje (rzeczone @Run), tester (sedno zadania) i program (jako zależność używa obu pozostałych modułów, to "kod testowany")
-
-5. Wywołanie całości via mvn:exec (czy główną klasę testera) powinno odpalić każdą z metod, nawet jeśli jedna ma błąd kompilacji czy nieoczekiwany wynik
-
-### Uruchomienie procesora adnotacji
-
-##### Wymagania
+##### Requirements
 
 Maven minimum 3.5.3
 Java minimum 8
 
-##### Instrukcja
+##### Instructions
 
-1. Odpal terminal i przejdź do folderu, w którym znajduje się projekt
+1. Run terminal and navigate to this project's folder
 
-2. Wpisz komendę mvn clean install
+2. Execute 'mvn clean install' command
 
-3. Odpal program wpisując java -jar ./tester/target/tester.jar
+3. Run app by typing 'java -jar ./tester/target/tester.jar'
+
+
